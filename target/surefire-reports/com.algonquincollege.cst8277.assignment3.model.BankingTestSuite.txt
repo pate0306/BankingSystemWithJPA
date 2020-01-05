@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------
+Test set: com.algonquincollege.cst8277.assignment3.model.BankingTestSuite
+-------------------------------------------------------------------------------
+Tests run: 40, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.827 s <<< FAILURE! - in com.algonquincollege.cst8277.assignment3.model.BankingTestSuite
+test10(com.algonquincollege.cst8277.assignment3.model.BankingTestSuite)  Time elapsed: 0.016 s  <<< ERROR!
+javax.persistence.OptimisticLockException: 
+Exception [EclipseLink-5006] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.OptimisticLockException
+Exception Description: The object [com.algonquincollege.cst8277.assignment3.model.User@5286c33a] cannot be updated because it has changed or been deleted since it was last read. 
+Class> com.algonquincollege.cst8277.assignment3.model.User Primary Key> 0
+	at com.algonquincollege.cst8277.assignment3.model.BankingTestSuite.test10(BankingTestSuite.java:308)
+Caused by: org.eclipse.persistence.exceptions.OptimisticLockException: 
+
+Exception Description: The object [com.algonquincollege.cst8277.assignment3.model.User@5286c33a] cannot be updated because it has changed or been deleted since it was last read. 
+Class> com.algonquincollege.cst8277.assignment3.model.User Primary Key> 0
+	at com.algonquincollege.cst8277.assignment3.model.BankingTestSuite.test10(BankingTestSuite.java:308)
+
+test31(com.algonquincollege.cst8277.assignment3.model.BankingTestSuite)  Time elapsed: 0.006 s  <<< ERROR!
+javax.persistence.RollbackException: 
+javax.persistence.OptimisticLockException: Exception [EclipseLink-5006] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.OptimisticLockException
+Exception Description: The object [com.algonquincollege.cst8277.assignment3.model.User@5d018107] cannot be updated because it has changed or been deleted since it was last read. 
+Class> com.algonquincollege.cst8277.assignment3.model.User Primary Key> 0
+	at com.algonquincollege.cst8277.assignment3.model.BankingTestSuite.test31(BankingTestSuite.java:936)
+Caused by: javax.persistence.OptimisticLockException: 
+Exception [EclipseLink-5006] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.OptimisticLockException
+Exception Description: The object [com.algonquincollege.cst8277.assignment3.model.User@5d018107] cannot be updated because it has changed or been deleted since it was last read. 
+Class> com.algonquincollege.cst8277.assignment3.model.User Primary Key> 0
+	at com.algonquincollege.cst8277.assignment3.model.BankingTestSuite.test31(BankingTestSuite.java:936)
+Caused by: org.eclipse.persistence.exceptions.OptimisticLockException: 
+
+Exception Description: The object [com.algonquincollege.cst8277.assignment3.model.User@5d018107] cannot be updated because it has changed or been deleted since it was last read. 
+Class> com.algonquincollege.cst8277.assignment3.model.User Primary Key> 0
+	at com.algonquincollege.cst8277.assignment3.model.BankingTestSuite.test31(BankingTestSuite.java:936)
+

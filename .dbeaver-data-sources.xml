@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="h2_server-16d1157741e-6cb88b1db3d043dc" provider="generic" driver="h2_server" name="H2 - Banking" save-password="true" read-only="false">
+		<connection host="localhost" port="12345" server="" database="~/assignment3_test;IFEXISTS=TRUE" url="jdbc:h2:tcp://localhost:12345/~/assignment3_test;IFEXISTS=TRUE" user="sa" password="AwUVM1ZMVhJl8w==" type="dev"/>
+	</data-source>
+	<data-source id="h2_server-16e6b0fe390-3b211dd317ea36cf" provider="generic" driver="h2_server" name="H2 - Banking mem" save-password="true" read-only="false">
+		<connection host="localhost" port="9092" server="" database="mem:Assignment3-testing" url="jdbc:h2:tcp://localhost:9092/mem:Assignment3-testing" user="sa" password="AwUVM1ZMVhJl8w==" type="dev"/>
+	</data-source>
+	<filters/>
+</data-sources>

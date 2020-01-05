@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.algonquincollege.cst8277</groupId>
+  <artifactId>assignment3</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>040751954_Assignment3_ParthPatel</name>
+  <description>Assignment 3 - More JPA, More Power</description>
+
+    <!-- why is everything a property? Because hard-coded values become part of
+        Maven's immutable Model object and then their contents can't be changed.
+        However, if the value is set in a user-defined property BEFORE the Model
+        object is created, then it is possible to do: mvn clean compile -Dfoo.bar.version=1.2.3
+        in order to (say for example) test out a newer version of some dependency
+        without having to change the pom.xml.
+    -->
+
+  <properties>
+    <!-- maven properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.source.level>1.8</project.source.level>
+    <project.target.level>1.8</project.target.level>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
+    <maven.site.plugin.version>3.8.2</maven.site.plugin.version>
+    <maven.project.info.reports.plugin.version>3.0.0</maven.project.info.reports.plugin.version>
+    <failIfNoTests>false</failIfNoTests>
+        
+    <!-- code properties -->
+    <slf4j.version>1.7.25</slf4j.version>
+    <logback.version>1.2.3</logback.version>
+    <h2.version>1.4.199</h2.version>
+    <eclipselink.version>2.7.3</eclipselink.version>
+    <javax.persistence.version>2.2</javax.persistence.version>
+        
+    <!-- test properties -->
+    <junit.version>4.12</junit.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <!-- See https://stackoverflow.com/q/45870753 -->
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>eclipselink</artifactId>
+      <version>${eclipselink.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.eclipse.persistence</groupId>
+          <artifactId>javax.persistence</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>${javax.persistence.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+      <version>${eclipselink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.extension</artifactId>
+      <version>${eclipselink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${project.source.level}</source>
+          <target>${project.target.level}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <compilerArgument>-proc:none</compilerArgument>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin.version}</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+          <includes>
+            <include>**/*TestSuite.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${maven.site.plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>${maven.project.info.reports.plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+
+</project>
